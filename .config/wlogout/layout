@@ -1,0 +1,36 @@
+{
+    "label" : "suspend",
+    "action" : "loginctl suspend-then-hibernate",
+    "text" : "Suspend > Hibernate",
+    "keybind" : "u"
+}
+{
+    "label" : "shutdown",
+    "action" : "loginctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+{
+    "label" : "hibernate",
+    "action" : "loginctl hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+{
+    "label" : "reboot",
+    "action" : "loginctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
+{
+    "label" : "lock",
+    "action" : "loginctl reboot",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl reboot",
+    "text" : "Logout",
+    "keybind" : "e"
+}
