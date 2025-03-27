@@ -1,0 +1,11 @@
+[Default Applications]
+inode/directory=nemo.desktop
+image/jpeg=imv-dir.desktop
+text/markdown=sublime_text.desktop
+text/plain=sublime_text.desktop
+
+[Added Associations]
+inode/directory=nemo.desktop;
+image/jpeg=imv-dir.desktop;
+text/markdown=sublime_text.desktop;
+text/plain=sublime_text.desktop;
