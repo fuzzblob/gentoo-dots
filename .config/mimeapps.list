@@ -3,9 +3,11 @@ inode/directory=nemo.desktop
 image/jpeg=imv-dir.desktop
 text/markdown=sublime_text.desktop
 text/plain=sublime_text.desktop
+video/x-matroska=mpv.desktop
 
 [Added Associations]
 inode/directory=nemo.desktop;
 image/jpeg=imv-dir.desktop;
 text/markdown=sublime_text.desktop;
 text/plain=sublime_text.desktop;
+video/x-matroska=vlc.desktop;mpv.desktop;
