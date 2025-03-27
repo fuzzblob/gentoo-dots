@@ -1,0 +1,42 @@
+# ignore cache dir
+.cache/
+
+# ignore specific config dirs
+# some only for now
+.config/Bitwarden/
+.config/Signal/
+.config/VSCodium/
+.vscode-oss/
+.config/GIMP/
+.config/SourceGit/
+.config/sublime-text/Local/
+.config/obs-studio/
+.config/inkscape/
+.config/btop/btop.log
+.config/aseprite/Aseprite.log
+.config/aseprite/sessions/
+.config/discord/
+.config/pulse/
+.config/godot/
+.var/app/com.valvesoftware.Steam/
+.mozilla/
+.local/share/
+
+# ignore home folder directories
+Downloads/
+Documents/
+repos/
+
+# ignore secrets, known hosts, histories
+.ssh/
+.gnupg/
+.wget-hsts
+.bash_history
+.zsh_history
+.lesshst
+.pki/nssdb/
+
+# mic / unsorted ignores
+.zcompdump*
+.config/dconf/
+.dbus/session-bus/
