@@ -9,8 +9,8 @@ alias la="ls -la"
 alias history-enable="set -o history"
 alias history-disable="set +o history"
 
-alias gupdate="emerge --sync"
-alias gupgrade="emerge --ask --verbose --update --deep --changed-use @world"
+alias gupdate="doas emerge --sync"
+alias gupgrade="doas emerge --ask --verbose --update --deep --changed-use @world"
 
 alias hibereboot="doas zsh -c 'echo reboot > /sys/power/disk && echo disk > /sys/power/state'"
 
