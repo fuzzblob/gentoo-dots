@@ -1,0 +1,27 @@
+# Put your fun stuff here.
+
+# a minimal set of aliases for making bash usable
+alias ip='ip -color'
+alias ipb='ip -color -br -4 a'
+alias ll='ls -lAh --group-directories-first'
+alias la="ls -la"
+
+alias history-enable="set -o history"
+alias history-disable="set +o history"
+
+alias gupdate="emerge --sync"
+alias gupgrade="emerge --ask --verbose --update --deep --changed-use @world"
+
+alias hibereboot="doas zsh -c 'echo reboot > /sys/power/disk && echo disk > /sys/power/state'"
+
+alias sudo="doas"
+#alias emerge="doas emerge"
+#alias loginctl="/usr/bin/loginctl"
+alias reboot="doas /usr/bin/reboot"
+alias shutdown="doas /usr/bin/shutdown now"
+
+alias htop="btop"
+
+alias clear='clear && nerdfetch && echo "\n"'
+
+clear
