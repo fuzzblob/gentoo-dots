@@ -24,13 +24,13 @@
 }
 {
     "label" : "lock",
-    "action" : "loginctl reboot",
+    "action" : "~/.config/wlogout/lock.sh",
     "text" : "Lock",
     "keybind" : "l"
 }
 {
     "label" : "logout",
-    "action" : "loginctl reboot",
+    "action" : "~/.config/wlogout/logout.sh",
     "text" : "Logout",
     "keybind" : "e"
 }

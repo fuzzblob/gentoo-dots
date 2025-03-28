@@ -50,6 +50,21 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 Output eDP-1 resolution 1920x1080 position 0,0
 
+
+### swaylock configuration
+#
+# setup in external script
+#
+
+set $swlock ~/.config/wlogout/lock.sh
+#bindsym $mod+Ctrl+l exec swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e
+bindsym $mod+Ctrl+l exec $swlock
+#swaylock --ignore-empty-password --show-failed-attempts \
+#    --color 1e1e1e --inside-color cccccc --ring-color ffffff \
+#    --inside-clear-color 11a8cd --ring-clear-color 29b8db \
+#    --inside-ver-color 2472c8 --ring-ver-color 3b8eea \
+#    --inside-wrong-color cd3131 --ring-wrong-color f14c4c
+
 ### Idle configuration
 #
 # Example configuration:
@@ -64,21 +79,14 @@ Output eDP-1 resolution 1920x1080 position 0,0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-         timeout 600 'swaylock -f -c 000000' \
-         timeout 660 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+	timeout 600 ~/.config/wlogout/lock.sh \
+	timeout 605 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+	before-sleep ~/.config/wlogout/lock.sh
 
-exec swayidle -w \
-	timeout 900 'swaymsg "output * power off"' \
-	resume 'swaymsg "output * power on"'
+#exec swayidle -w \
+#	timeout 900 'swaymsg "output * power off"' \
+#	resume 'swaymsg "output * power on"'
 
-# setup swaylock shortcut
-#bindsym $mod+Ctrl+l exec swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e
-bindsym $mod+Ctrl+l exec swaylock --ignore-empty-password --show-failed-attempts \
-    --color 1e1e1e --inside-color cccccc --ring-color ffffff \
-    --inside-clear-color 11a8cd --ring-clear-color 29b8db \
-    --inside-ver-color 2472c8 --ring-ver-color 3b8eea \
-    --inside-wrong-color cd3131 --ring-wrong-color f14c4c
 ### Input configuration
 #
 # Example configuration:
