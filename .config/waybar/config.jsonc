@@ -7,10 +7,11 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "custom/power",
         "sway/workspaces",
-        "sway/mode",
         "sway/scratchpad",
-        "custom/media"
+        "custom/media",
+        "sway/mode",
     ],
     "modules-center": [
         "sway/window"
@@ -19,20 +20,21 @@
         "mpd",
         "idle_inhibitor",
         "network",
-        "power-profiles-daemon",
         "cpu",
-        "memory",
         "temperature",
-	"wireplumber",
+        "memory",
+        "disk",
+        "bluetooth",
+        "keyboard-state",
+        "power-profiles-daemon",
+        "sway/language",
+        "wireplumber",
         //"custom/pipewire",
         "custom/wireplumber",
         "backlight",
-        "keyboard-state",
-        "sway/language",
         "battery",
         "clock",
         "tray",
-        "custom/power"
     ],
     // Modules configuration
     "sway/workspaces": {
@@ -44,11 +46,27 @@
             "1": "",
             "2": "",
             "3": "",
-            "4": "",
+            "4": "🗁",
             "5": "",
+            //"6": "🚀",
+            //"7": "✨",
+            //"8": "🏳️‍🌈",
+            //"9": "🏳️‍⚧️",
+            "10": "🖭 / ",
             "urgent": "",
             //"focused": "",
             "default": ""
+        }
+    },
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 100,
+        "rewrite": {
+           "(.*) - Mozilla Firefox": "🌎 $1",
+           "(.*) - vim": " $1",
+           "nano (.*)": "  $15",
+           "(.*) - zsh": " [$1]",
+           "(.*) - Sublime Text (UNREGISTERED)": ": [$1]",
         }
     },
     "custom/wireplumber": {
@@ -66,12 +84,24 @@
         "restart-interval": 0,
         "exec": "$HOME/.config/waybar/scripts/pipewire.sh"
     },
+    "wireplumber": {
+        "format": "{node_name}: {volume}% {icon}",
+        "format-muted": "{node_name}: [0%]",
+        "on-click": "helvum",
+        "reverse-scrolling": 1,
+        "states": {
+            "low":20,
+            "med": 45,
+            "high": 70
+        },
+        "format-icons": ["🕨", "🕩", "🕪"],
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
         "format": "{name} {icon}",
         "format-icons": {
-            "locked": "",
+            "locked": "🔒",
             "unlocked": ""
         }
     },
@@ -119,28 +149,43 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+        "icon-size": 21,
+        "spacing": 10,
+        "show-passive-items": true,
     },
     "clock": {
+        "format": "{:%H:%M:%S}",
         "timezone": "Europe/Amsterdam",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	"format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y-%m-%d}",
+        "interval": 1,
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "{load} / {usage}% ",
+        "tooltip": false,
+        "on-click": "alacritty --title 'btop: monitor' --command btop",
+        "interval": 7,
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}%   ",
+        "on-click": "alacritty --title 'btop: monitor' --command btop",
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
+        "format-critical": "!!! {temperatureC}°C {icon} !!!",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
+    },
+    "disk": {
+        "interval": 30,
+        "format": "Only {percentage_free}% remaining on {path}",
+        "path": "/",
+        "format": "{specific_used:0.0f} GB 🖴",
+        "tooltip": "Total: {free} GB / {total} GB available",
+        "unit": "GB"
+        // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -148,7 +193,8 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
-	"full-at": 78,
+        "interval": 60,
+    	"full-at": 78,
         "states": {
             "good": 90,
             "warning": 30,
@@ -167,18 +213,18 @@
         "bat": "BAT2"
     },
     "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
     "network": {
-        "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "interface": "wifi", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
@@ -187,7 +233,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
@@ -218,14 +264,16 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			//"menu": "wlogout -l .config/wlogout/layout"
-			"shutdown": "shutdown",
-			"reboot": "reboot"
-		}
+        "format" : " ⏻ ",
+		"tooltip": true,
+        "tooltip-format": "launch wlogout",
+        "on-click": "wlogout -l .config/wlogout/layout",
+		//"menu": "on-click",
+		//"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		//"menu-actions": {
+		//	//"menu": "wlogout -l .config/wlogout/layout"
+		//	"shutdown": "shutdown",
+		//	"reboot": "reboot"
+		//}
     }
 }
