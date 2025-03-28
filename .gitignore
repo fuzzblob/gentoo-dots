@@ -40,3 +40,6 @@ repos/
 .zcompdump*
 .config/dconf/
 .dbus/session-bus/
+.links/cookies.txt
+.links/links.his
+videos/
