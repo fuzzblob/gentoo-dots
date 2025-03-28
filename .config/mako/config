@@ -1,0 +1,2 @@
+[actionable=true]
+on-button-right=exec makoctl menu -n "${id}" ~/.config/wofi/wofi_run.sh dmenu
