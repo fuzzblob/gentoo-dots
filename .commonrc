@@ -15,13 +15,17 @@ alias gupgrade="doas emerge --ask --verbose --update --deep --changed-use @world
 alias hibereboot="doas zsh -c 'echo reboot > /sys/power/disk && echo disk > /sys/power/state'"
 
 alias sudo="doas"
-#alias emerge="doas emerge"
+alias emerge="doas emerge"
+
+alias glogout="~/.config/wlogout/logout.sh"
 #alias loginctl="/usr/bin/loginctl"
 alias reboot="doas /usr/bin/reboot"
 alias shutdown="doas /usr/bin/shutdown now"
+alias conntest="ping duckduckgo.com"
 
 alias htop="btop"
 
+alias re-source="source ~/.commonrc"
 alias clear='clear && nerdfetch && echo "\n"'
 
 clear
