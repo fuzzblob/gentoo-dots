@@ -1,3 +1,15 @@
+# setup steps
+
+## disclaimer
+
+this repository is a work in progress.
+
+TODO: add ansible playbook
+
+# instructions
+
+## basics
+
 sway
 fuzzel
 wlogout
@@ -7,9 +19,9 @@ fix waybar icons with media-fonts/nerdfonts using agave
 
 powerbutton disabled via /etc/elogind/logind.conf
 
-###################################################################################################################
+## Apps
 
-# desktop
+### desktop
 
 gui-apps/fuzzel-1.11.1::guru
 gui-apps/swaybg-1.2.1::gentoo
@@ -30,7 +42,7 @@ media-libs/mesa-24.3.4-r1::gentoo
 media-video/libva-utils-2.22.0::gentoo
 acct-group/pipewire-0-r2::gentoo
 
-# system
+### system
 
 net-dns/avahi-0.9_rc2::gentoo
 app-admin/doas-6.8.2::gentoo
@@ -82,34 +94,34 @@ virtual/dist-kernel-6.12.16::gentoo
 sys-apps/memtest86+-7.00::gentoo
 media-fonts/liberation-fonts-2.1.5::gentoo
 
-# basic GUI apps
+### basic GUI apps
 
 x11-terms/alacritty-0.14.0-r1::gentoo
 www-client/firefox-bin-136.0.2::gentoo
 media-gfx/imv-4.5.0::gentoo
 gnome-extra/nemo-6.2.8::gentoo
 
-# graphics
+### graphics
 
 dev-games/aseprite-1.3.5-r1::gentoo
 media-gfx/blender-bin-4.2.7::gentoo
 media-gfx/inkscape-1.4-r1::gentoo
 media-gfx/graphite2-1.3.14_p20210810-r3::gentoo
 
-# video
+### video
 
 media-video/obs-studio-31.0.2::gentoo
 media-video/vlc-3.0.21_p20250217::gentoo
 media-video/ffmpeg-6.1.2::gentoo
 
-# game dev
+### game dev
 
 dev-games/godot-4.4::gentoo
 media-libs/libsdl-1.2.68::gentoo
 media-libs/libsdl2-2.32.0::gentoo
 net-analyzer/nmap-7.95::gentoo
 
-# user apps
+### user apps
 
 app-admin/bitwarden-desktop-bin-2025.2.1::gentoo
 net-im/discord-0.0.89::gentoo
@@ -119,7 +131,7 @@ acct-group/libreoffice-0-r1::gentoo
 acct-user/libreoffice-0-r1::gentoo
 app-office/libreoffice-bin-24.8.4-r3::gentoo
 
-# dev
+### dev
 
 app-editors/nano-8.3-r1::gentoo
 app-editors/sublime-text-4_p4192::gentoo
@@ -133,4 +145,8 @@ dev-build/scons-4.9.0::gentoo
 sys-devel/bison-3.8.2-r3::gentoo
 sys-devel/gcc-14.2.1_p20241221::gentoo
 sys-process/btop-1.4.0::gentoo
+
+### unsorted
+
+#### very extra unsorted
 
